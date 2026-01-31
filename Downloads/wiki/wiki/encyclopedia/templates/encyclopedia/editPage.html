@@ -1,0 +1,21 @@
+{%extends "encyclopedia/layout.html"%}
+{%block title%}
+   Edit Page
+{%endblock%}
+
+{%block body%}
+           <form action="{%url 'saveEdits' %}" method="POST">
+               {%csrf_token%}
+                <div class="form-group">
+                    <label class= "form-title">{{entryTitle}}</label>
+                    <input type = "hidden" name="title"  vlaue="{{entryTitle}}">
+                </div>
+                <div class="from-group">
+                    <label class="form-title">Edit content</label>
+                        <textarea class="form-control" name="text" row="8" id="exampleFormControlTextarea">{{entry}} </textarea>
+                </div>
+                <button type="submit" class="btn btn-outline-dark">Submit</button>
+
+           </form>
+
+{%endblock%}
